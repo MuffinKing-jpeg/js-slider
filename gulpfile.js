@@ -8,6 +8,8 @@ const csscomb = require('gulp-csscomb');
 const autoprefixer = require('autoprefixer');
 const mqpacker = require('css-mqpacker');
 const sortCSSmq = require('sort-css-media-queries');
+const babel = require('gulp-babel');
+const uglify = require('gulp-uglify');
 
 const PATH = {
   scssFolder: './assets/scss/',
@@ -19,6 +21,7 @@ const PATH = {
   htmlFiles: './*.html',
   jsFiles: './assets/js/**/*.js',
   sliderFile: './assets/scss/slider.scss',
+  buildFolder: './muffin-slider/',
 };
 
 const PLUGINS = [
@@ -69,6 +72,30 @@ function syncInit() {
     notify: false,
   });
 }
+function polyBuild() {
+  return src(PATH.jsFiles)
+    .pipe(babel({
+      presets: [
+        [
+          '@babel/preset-env',
+          {
+            loose: true,
+            modules: false,
+            browserslistEnv: '> 0.25% not dead',
+          },
+        ],
+      ],
+    }))
+    .pipe(uglify())
+    .pipe(dest(PATH.buildFolder));
+}
+
+function cssBuild() {
+  return src(PATH.sliderFile).
+    pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError)).
+    pipe(postcss(PLUGINS)).
+    pipe(dest(PATH.buildFolder));
+}
 
 async function sync() {
   browserSync.reload();
@@ -86,3 +113,4 @@ task('comb', series(comb));
 task('scss', series(scss));
 task('dev', series(scssDev));
 task('watch', watchFiles);
+task('build', parallel(polyBuild, cssBuild));

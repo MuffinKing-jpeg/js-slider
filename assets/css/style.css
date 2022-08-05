@@ -252,6 +252,22 @@ input[type=checkbox], input[type=radio] {
   --accent: #dc143c;
 }
 
+:root {
+  --dark-slider-10: rgba(#000000, 0.1);
+}
+
+.dark {
+  --color-slider-primary: #ffffff;
+  --bg-color-slider-primary: #252525;
+  --accent-slider: #dc143c;
+}
+
+.light {
+  --color-slider-primary: #000000;
+  --bg-color-slider-primary: #ffffff;
+  --accent-slider: #dc143c;
+}
+
 /* ul */
 /* xl */
 /* lg */
