@@ -28,13 +28,12 @@ Touch controls:
 ```
 
 I can't figure out how to make it working just with adding two files , so...
-Or both:
 
 ```html
 <script src="https://raw.githubusercontent.com/MuffinKing-jpeg/js-slider/master/muffin-slider/slider-all-controls.js" defer></script>
 ```
 
-Or you can install it localy by downloading folder `muffin-slider`.
+Or you can install it localy by downloading folder `muffin-slider`.  
 Now make parrent container for your slider with id `#slider`.
 
 ```html
@@ -43,7 +42,7 @@ Now make parrent container for your slider with id `#slider`.
 
 ## Initialization
 
-Drop you images to `./assets/img/` (Path can be chaged)
+Drop you images to `./assets/img/` (Path can be chaged)  
 Put in you `JavaScript` file
 
 ```js
@@ -60,51 +59,51 @@ initSlider({
 
 ### You can specify more parametrs
 
-* `slides` It's necessary. Must be an array of images names. If you put only one slide, it will works like a still image.
+* `slides` It's necessary. Must be an array of images names. If you put only one slide, it will works like a still image.  
 Value: `['array','of','strings']`  
 
-* `imgPath` Path to images folder, useless if `absolutePath: true`.
-Default: `./assets/img/`
+* `imgPath` Path to images folder, useless if `absolutePath: true`.  
+Default: `./assets/img/`  
 Value: `'string'`
 
-* `absolutePath` Changing images path to absolute. Using full path `https://picsum.photos/1920/1080` instead of local `./assets/img/`
-Default: `false`
+* `absolutePath` Changing images path to absolute. Using full path `https://picsum.photos/1920/1080` instead of local `./assets/img/`  
+Default: `false`  
 Values: `true || false`
 
-* `parentSelector` CSS selector of your slider container
-Default: `'#slider'`
-Value: `'.css #selector'`
+* `parentSelector` CSS selector of your slider container  
+Default: `'#slider'`  
+Value: `'.css #selector'`  
 
-* `controls` Changing visibility of controls elements
-Default: `true`
+* `controls` Changing visibility of controls elements  
+Default: `true`  
 Values: `true || 'prev-next' || 'play-pause' || false`
 
-* `indicators` Changing visibility of indicators elements
-Default: `true`
+* `indicators` Changing visibility of indicators elements  
+Default: `true`  
 Values: `true || false`
 
-* `localStyle` Unlocks ability to use another path to style
-Default: `false`
+* `localStyle` Unlocks ability to use another path to style  
+Default: `false`  
 Values: `true || false`
 
-* `stylePath` Path to style file. Useless if `localStyle: false`
-Default: `'./assets/css/slider.css'`
+* `stylePath` Path to style file. Useless if `localStyle: false`  
+Default: `'./assets/css/slider.css'`  
 Value: `'./path/to/your.css'`
 
-* `firstSlide` Number of first displayed slide. Counting starts from 0!
-Default: `0`
+* `firstSlide` Number of first displayed slide. Counting starts from 0!  
+Default: `0`  
 Value: `number`
 
-* `interval` Time duration between slides in `ms`.
-Default: `5000`
+* `interval` Time duration between slides in `ms`.  
+Default: `5000`  
 Value: `number`
 
-* `isPlaying` Changes default state of slider. Paused or not.
-Default: `true`
+* `isPlaying` Changes default state of slider. Paused or not.  
+Default: `true`  
 Values: `true || false`
 
-* `inverse` ***LOOK AT ME, I\`M GOING BACKWARDS***
-Defautl: `false`
+* `inverse` ***LOOK AT ME, I\`M GOING BACKWARDS***  
+Defautl: `false`  
 Values: `true || false`
 
 Example:
