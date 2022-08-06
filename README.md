@@ -116,7 +116,7 @@ initSlider({
     controls: true,
     indicators: true,
     localStyle: false,
-    stylePath: './assets/slider/css/slider.css'
+    stylePath: './assets/slider/css/slider.css',
     firstSlide: 0,
     interval: 5000,
     isPlaying: true,
