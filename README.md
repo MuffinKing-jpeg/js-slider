@@ -4,7 +4,7 @@
 
 ## Instalation
 
-**Using `Fontawesome`*
+**Using `Fontawesome`*  
 Put in head document this:
 
 ```html
