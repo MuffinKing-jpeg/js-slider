@@ -127,3 +127,20 @@ initSlider({
   ],
 });
 ```
+
+## Style
+
+You can use custom colors by changing CSS variables.
+
+```css
+:root {
+    --dark-slider-10: rgba(0, 0, 0, 0.1);
+    --color-slider-primary: #ffffff;
+    --bg-color-slider-primary: #252525;
+    --accent-slider: #dc143c;
+}
+```
+
+## How to edit?
+
+Fork or clone repository. After that use in work directory `npm install` command. For live updating use `gulp watch`. For build with babel polyfils use `gulp build`
