@@ -26,6 +26,176 @@
     <div class="container" id="slider">
 
     </div>
+    <div class="container">
+        <h1 class="code-line" data-line-start=0 data-line-end=1><a id="Usage_guide_0"></a>Usage guide</h1>
+        <p class="has-line-data" data-line-start="2" data-line-end="3"><a
+                href="https://muffinking-jpeg.github.io/js-slider/"><em>Demo page</em></a></p>
+        <h2 class="code-line" data-line-start=4 data-line-end=5><a id="Instalation_4"></a>Instalation</h2>
+        <p class="has-line-data" data-line-start="6" data-line-end="8">*<em>Using <code>Fontawesome</code></em><br>
+            Put in document`s head this:</p>
+        <pre><code class="has-line-data" data-line-start="10" data-line-end="14" class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"stylesheet"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"</span>
+        <span class="hljs-attribute">crossorigin</span>=<span class="hljs-value">"anonymous"</span> <span class="hljs-attribute">referrerpolicy</span>=<span class="hljs-value">"no-referrer"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://raw.githubusercontent.com/MuffinKing-jpeg/js-slider/master/muffin-slider/slider.js"</span> <span class="hljs-attribute">defer</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+        <p class="has-line-data" data-line-start="15" data-line-end="16">In case if you want to use touch or keyboard
+            controls add few more rows:</p>
+        <p class="has-line-data" data-line-start="17" data-line-end="18">Keyboard control:</p>
+        <pre><code class="has-line-data" data-line-start="20" data-line-end="22" class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://raw.githubusercontent.com/MuffinKing-jpeg/js-slider/master/muffin-slider/slider-key-controls.js"</span> <span class="hljs-attribute">defer</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+        <p class="has-line-data" data-line-start="23" data-line-end="24">Touch controls:</p>
+        <pre><code class="has-line-data" data-line-start="26" data-line-end="28" class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://raw.githubusercontent.com/MuffinKing-jpeg/js-slider/master/muffin-slider/slider-touch-controls.js"</span> <span class="hljs-attribute">defer</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+        <p class="has-line-data" data-line-start="29" data-line-end="30">I can’t figure out how to make it working just
+            with
+            adding two files , so…</p>
+        <pre><code class="has-line-data" data-line-start="32" data-line-end="34" class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://raw.githubusercontent.com/MuffinKing-jpeg/js-slider/master/muffin-slider/slider-all-controls.js"</span> <span class="hljs-attribute">defer</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+        <p class="has-line-data" data-line-start="35" data-line-end="37">Or you can install it localy by downloading
+            folder
+            <code>muffin-slider</code>.<br>
+            Now make parrent container for your slider with id <code>#slider</code>.
+        </p>
+        <pre><code class="has-line-data" data-line-start="39" data-line-end="41" class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"slider"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+        <h2 class="code-line" data-line-start=42 data-line-end=43><a id="Initialization_42"></a>Initialization</h2>
+        <p class="has-line-data" data-line-start="44" data-line-end="46">Drop you images to <code>./assets/img/</code>
+            (Path
+            can be chaged)<br>
+            Put in you <code>JavaScript</code> file</p>
+        <pre><code class="has-line-data" data-line-start="48" data-line-end="58" class="language-js">initSlider({
+    slides: [
+        <span class="hljs-string">'array.gif'</span>,
+        <span class="hljs-string">'of.webp'</span>,
+        <span class="hljs-string">'image.png'</span>,
+        <span class="hljs-string">'names.jpeg'</span>,
+        
+    ]
+})
+</code></pre>
+        <h3 class="code-line" data-line-start=59 data-line-end=60><a id="You_can_specify_more_parametrs_59"></a>You can
+            specify more parametrs</h3>
+        <ul>
+            <li class="has-line-data" data-line-start="61" data-line-end="64">
+                <p class="has-line-data" data-line-start="61" data-line-end="63"><code>slides</code> It’s necessary.
+                    Must be
+                    an array of images names. If you put only one slide, it will works like a still image.<br>
+                    Value: <code>['array','of','strings']</code></p>
+            </li>
+            <li class="has-line-data" data-line-start="64" data-line-end="68">
+                <p class="has-line-data" data-line-start="64" data-line-end="67"><code>imgPath</code> Path to images
+                    folder,
+                    useless if <code>absolutePath: true</code>.<br>
+                    Default: <code>./assets/img/</code><br>
+                    Value: <code>'string'</code></p>
+            </li>
+            <li class="has-line-data" data-line-start="68" data-line-end="72">
+                <p class="has-line-data" data-line-start="68" data-line-end="71"><code>absolutePath</code> Changing
+                    images
+                    path to absolute. Using full path <code>https://picsum.photos/1920/1080</code> instead of local
+                    <code>./assets/img/</code><br>
+                    Default: <code>false</code><br>
+                    Values: <code>true || false</code>
+                </p>
+            </li>
+            <li class="has-line-data" data-line-start="72" data-line-end="76">
+                <p class="has-line-data" data-line-start="72" data-line-end="75"><code>parentSelector</code> CSS
+                    selector of
+                    your slider container<br>
+                    Default: <code>'#slider'</code><br>
+                    Value: <code>'.css #selector'</code></p>
+            </li>
+            <li class="has-line-data" data-line-start="76" data-line-end="80">
+                <p class="has-line-data" data-line-start="76" data-line-end="79"><code>controls</code> Changing
+                    visibility
+                    of controls elements<br>
+                    Default: <code>true</code><br>
+                    Values: <code>true || 'prev-next' || 'play-pause' || false</code></p>
+            </li>
+            <li class="has-line-data" data-line-start="80" data-line-end="84">
+                <p class="has-line-data" data-line-start="80" data-line-end="83"><code>indicators</code> Changing
+                    visibility
+                    of indicators elements<br>
+                    Default: <code>true</code><br>
+                    Values: <code>true || false</code></p>
+            </li>
+            <li class="has-line-data" data-line-start="84" data-line-end="88">
+                <p class="has-line-data" data-line-start="84" data-line-end="87"><code>localStyle</code> Unlocks ability
+                    to
+                    use another path to style<br>
+                    Default: <code>false</code><br>
+                    Values: <code>true || false</code></p>
+            </li>
+            <li class="has-line-data" data-line-start="88" data-line-end="92">
+                <p class="has-line-data" data-line-start="88" data-line-end="91"><code>stylePath</code> Path to style
+                    file.
+                    Useless if <code>localStyle: false</code><br>
+                    Default: <code>'./assets/css/slider.css'</code><br>
+                    Value: <code>'./path/to/your.css'</code></p>
+            </li>
+            <li class="has-line-data" data-line-start="92" data-line-end="96">
+                <p class="has-line-data" data-line-start="92" data-line-end="95"><code>firstSlide</code> Number of first
+                    displayed slide. Counting starts from 0!<br>
+                    Default: <code>0</code><br>
+                    Value: <code>number</code></p>
+            </li>
+            <li class="has-line-data" data-line-start="96" data-line-end="100">
+                <p class="has-line-data" data-line-start="96" data-line-end="99"><code>interval</code> Time duration
+                    between
+                    slides in <code>ms</code>.<br>
+                    Default: <code>5000</code><br>
+                    Value: <code>number</code></p>
+            </li>
+            <li class="has-line-data" data-line-start="100" data-line-end="104">
+                <p class="has-line-data" data-line-start="100" data-line-end="103"><code>isPlaying</code> Changes
+                    default
+                    state of slider. Paused or not.<br>
+                    Default: <code>true</code><br>
+                    Values: <code>true || false</code></p>
+            </li>
+            <li class="has-line-data" data-line-start="104" data-line-end="108">
+                <p class="has-line-data" data-line-start="104" data-line-end="107"><code>inverse</code> <strong><em>LOOK
+                            AT
+                            ME, I`M GOING BACKWARDS</em></strong><br>
+                    Defautl: <code>false</code><br>
+                    Values: <code>true || false</code></p>
+            </li>
+        </ul>
+        <p class="has-line-data" data-line-start="108" data-line-end="109">Example:</p>
+        <pre><code class="has-line-data" data-line-start="111" data-line-end="129" class="language-js">initSlider({
+    imgPath: <span class="hljs-string">'./assets/slider/img/'</span>,
+    absolutePath: <span class="hljs-literal">false</span>, 
+    parentSelector: <span class="hljs-string">'.container'</span>, 
+    controls: <span class="hljs-literal">true</span>,
+    indicators: <span class="hljs-literal">true</span>,
+    localStyle: <span class="hljs-literal">false</span>,
+    stylePath: <span class="hljs-string">'./assets/slider/css/slider.css'</span>,
+    firstSlide: <span class="hljs-number">0</span>,
+    interval: <span class="hljs-number">5000</span>,
+    isPlaying: <span class="hljs-literal">true</span>,
+    inverse: <span class="hljs-literal">false</span>,
+    slides: [
+        <span class="hljs-string">'img_car_in_chinatown.png'</span>,
+        <span class="hljs-string">'img_car.png'</span>,
+  ],
+});
+</code></pre>
+        <h2 class="code-line" data-line-start=130 data-line-end=131><a id="Style_130"></a>Style</h2>
+        <p class="has-line-data" data-line-start="132" data-line-end="133">You can use custom colors by changing CSS
+            variables.</p>
+        <pre><code class="has-line-data" data-line-start="135" data-line-end="142" class="language-css">:root {
+    --dark-slider-10: rgba(0, 0, 0, 0.1);
+    --color-slider-primary: #ffffff;
+    --bg-color-slider-primary: #252525;
+    --accent-slider: #dc143c;
+}
+</code></pre>
+        <h2 class="code-line" data-line-start=143 data-line-end=144><a id="How_to_edit_143"></a>How to edit?</h2>
+        <p class="has-line-data" data-line-start="145" data-line-end="146">Fork or clone repository. After that use in
+            work
+            directory <code>npm install</code> command. For live updating use <code>gulp watch</code>. For build with
+            babel
+            polyfils use <code>gulp build</code></p>
+    </div>
 </body>
 
 </html>
