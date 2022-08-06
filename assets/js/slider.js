@@ -1,8 +1,21 @@
-// export default class Slider {
+/* eslint-disable no-undef */
 
 // eslint-disable-next-line no-unused-vars
 const initSlider = (p) => {
-  new Slider(p);
+  if (typeof (allControls) === 'boolean' || (
+    typeof (initKeys) === 'boolean' &&
+    typeof (initTouch) === 'boolean' &&
+    typeof (allControls) === 'boolean'
+  )) new AllControls(p);
+  if (typeof (initKeys) === 'boolean' &&
+    typeof (initTouch) !== 'boolean' &&
+    typeof (allControls) !== 'boolean') new KeyControls(p);
+  if (typeof (initTouch) === 'boolean' &&
+    typeof (initKeys) !== 'boolean' &&
+    typeof (allControls) !== 'boolean') new TouchControls(p);
+  if (typeof (initTouch) !== 'boolean' &&
+    typeof (initKeys) !== 'boolean' &&
+    typeof (allControls) !== 'boolean') new Slider(p);
 };
 
 // eslint-disable-next-line no-unused-vars
@@ -61,13 +74,13 @@ class Slider {
       this.firstSlide = typeof p.firstSlide === 'number' &&
         p.firstSlide <= this.slides ?
         p.firstSlide : 1;
-      0 >= settings.firstSlide <= settings.slides.length ?
+      0 >= settings.firstSlide <= settings.slides.length - 1 ?
         this.activeSlide = settings.firstSlide : this.firstSlide = 0;
-
-      this.appendStyle();
-      this.appendParts();
-      this.setListener();
-      this.startTimer();
+      this.container = document.querySelector(this.parentSelector);
+      this._appendStyle();
+      this._appendParts();
+      this._setListener();
+      this._startTimer();
     } catch (err) {
       const body = document
         .querySelector('body');
@@ -169,17 +182,18 @@ class Slider {
     return indicatorsContainer;
   }
 
-  appendParts() {
-    const container = document
-      .querySelector(this.parentSelector);
-
+  _appendParts() {
     // this.appendStyle();
-    container.appendChild(this.slidesConstructor());
-    if (this.controls) container.appendChild(this.controlsConstructor());
-    if (this.indicators) container.appendChild(this.indicatorsConstructor());
+    this.container.appendChild(this.slidesConstructor());
+    if (this.controls) {
+      this.container.appendChild(this.controlsConstructor());
+    }
+    if (this.indicators) {
+      this.container.appendChild(this.indicatorsConstructor());
+    }
   }
 
-  appendStyle() {
+  _appendStyle() {
     const head = document.querySelector('head');
     const styleContainer = document.createElement('style');
 
@@ -192,7 +206,7 @@ class Slider {
     document.querySelector(this.parentSelector).style = 'position: relative;';
   }
 
-  slidesSwitch(n) {
+  _slidesSwitch(n) {
     const currentSlide = document.querySelector(
       `#slide-${this.activeSlide}`,
     );
@@ -203,11 +217,11 @@ class Slider {
     currentSlide.classList.remove('slide--active');
     newSlide.classList.add('slide--active');
     this.indicators === true ?
-      this.indicatorSwitch(n, this.activeSlide) : null;
+      this._indicatorSwitch(n, this.activeSlide) : null;
     this.activeSlide = n;
   }
 
-  indicatorSwitch(n, prev) {
+  _indicatorSwitch(n, prev) {
     const currentIndicator = document.querySelector(
       `#indicator-${prev}`);
     const newIndicator = document.querySelector(
@@ -218,27 +232,27 @@ class Slider {
     this.activeSlide = n;
   }
 
-  indicatorsHandler(e) {
+  _indicatorsHandler(e) {
     const target = e.target;
     if (target.classList.contains('indicator')) {
       const num = +target.id.split('-')[1];
       this.pause();
-      this.slidesSwitch(num);
+      this._slidesSwitch(num);
     }
   }
 
-  startTimer() {
+  _startTimer() {
     this.timer = setInterval(() => {
       if (this.isPlaying) this.inverse ? this.prev() : this.next();
     }, this.interval);
   }
 
-  stopTimer() {
+  _stopTimer() {
     clearInterval(this.timer);
   }
 
   pause() {
-    this.stopTimer();
+    this._stopTimer();
     this.isPlaying = false;
 
     if (this.controls === true || this.controls === 'play-pause') {
@@ -249,7 +263,7 @@ class Slider {
   }
 
   play() {
-    this.startTimer();
+    this._startTimer();
     this.isPlaying = true;
     if (this.controls === true || this.controls === 'play-pause') {
       const controlsClass = document.querySelector('#play-pause');
@@ -261,16 +275,16 @@ class Slider {
   prev() {
     const dir = this.activeSlide === 0 ?
       this.slides.length : this.activeSlide;
-    this.slidesSwitch(dir - 1);
+    this._slidesSwitch(dir - 1);
   }
 
   next() {
     const dir = this.activeSlide === this.slides.length - 1 ?
       0 : this.activeSlide + 1;
-    this.slidesSwitch(dir);
+    this._slidesSwitch(dir);
   }
 
-  controlsHandler(e) {
+  _controlsHandler(e) {
     const target = e.target;
     if (target.classList.contains('controls--prev') ||
       target.offsetParent.classList.contains('controls--prev')) {
@@ -288,17 +302,17 @@ class Slider {
     }
   }
 
-  setListener() {
+  _setListener() {
     if (this.indicators === true) {
       const indicatorsContainer = document.querySelector('div.indicators');
       indicatorsContainer.addEventListener(
-        'click', this.indicatorsHandler.bind(this),
+        'click', this._indicatorsHandler.bind(this),
       );
     }
     if (this.controls !== false) {
       const indicatorsContainer = document.querySelector('div.controls');
       indicatorsContainer.addEventListener(
-        'click', this.controlsHandler.bind(this),
+        'click', this._controlsHandler.bind(this),
       );
     }
   }
